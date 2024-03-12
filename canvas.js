@@ -63,10 +63,12 @@ class Canvas {
     this._src = src;
     const img = new Image();
     img.crossOrigin = 'anonymous';
-    img.width = this.width;
-    img.height = this.height;
     img.src = src;
     img.addEventListener("load", () => {
+      this.width = img.width;
+      this.height = img.height;
+      this.canvas.width = this.width;
+      this.canvas.height = this.height;
       this.ctx.drawImage(img, 0, 0);
       const data = this.getImageData();
       this.ctx.fillRect(0, 0, this.width, this.height);
