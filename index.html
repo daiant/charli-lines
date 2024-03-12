@@ -24,7 +24,8 @@
       document.querySelector('#blue').value = canvas.color.blue;
       document.querySelector('#green').value = canvas.color.green;
       document.querySelector('#opacity').value = canvas.opacity;
-      document.querySelector('#sensitivity').value = canvas.sensitivity;
+      document.querySelector('#intensity').value = canvas.intensity;
+      document.querySelector('#threshold').value = canvas.threshold;
     }
     function handleFiles() {
       const file = this.files[0];
@@ -52,13 +53,17 @@
       const color = getValueById(of);
       canvas.setColor(of, color);
     }
-    function handleSensitivityChange() {
-      const range = getValueById('sensitivity')
-      canvas.setSensitivity(range);
+    function handleIntensityChange() {
+      const range = getValueById('intensity')
+      canvas.setIntensity(range);
     }
     function handleOpacityChange() {
       const range = getValueById('opacity')
       canvas.setOpacity(range);
+    }
+    function handleThresholdChange() {
+      const range = getValueById('threshold')
+      canvas.setThreshold(range);
     }
     function getValueById(id) {
       return document.querySelector('#' + id).value;
@@ -82,9 +87,10 @@
     <input type="color" name="blue" id="blue" onchange="handleColorChange('blue')">
     <label for="opacity">Opacity</label>
     <input type="range" name="opacity" id="opacity" oninput="handleOpacityChange()" min="0" max="255" step="1">
-    <label for="sensitivity">Sensitivity</label>
-    <input type="range" name="sensitivity" id="sensitivity" oninput="handleSensitivityChange()" min="0" max="10"
-      step="0.1">
+    <label for="intensity">Intensity</label>
+    <input type="range" name="intensity" id="intensity" oninput="handleIntensityChange()" min="0" max="10" step="0.1">
+    <label for="threshold">Threshold</label>
+    <input type="range" name="threshold" id="threshold" oninput="handleThresholdChange()" min="0" max="1" step="0.01">
     <button type="button" onclick="handleDownload()">Download</button>
   </form>
 </body>

@@ -18,9 +18,10 @@ class Canvas {
   width = 800;
   height = 800;
   interval = { x: 5, y: 10 };
-  sensitivity = 5;
+  intensity = 5;
   lineWidth = 2;
   opacity = 255;
+  threshold = 0.01;
   _src;
   color = {
     red: '#fd28fc',
@@ -37,6 +38,10 @@ class Canvas {
   update() {
     this.toCanvas(this._src);
   }
+  setThreshold(t) {
+    this.threshold = t;
+    this.update();
+  }
   setLineWidth(width) {
     this.lineWidth = width;
     this.update();
@@ -46,8 +51,8 @@ class Canvas {
     this.color[of] = color;
     this.update();
   }
-  setSensitivity(s) {
-    this.sensitivity = s;
+  setIntensity(s) {
+    this.intensity = s;
     this.update();
   }
   setOpacity(o) {
@@ -93,7 +98,12 @@ class Canvas {
       for (let x = 0; x <= this.width; x += this.interval.x) {
         const positionx = x / this.interval.x;
         const positiony = y / this.interval.y;
-        this.ctx.lineTo(x, y + data[positiony][positionx][color_position] * this.sensitivity);
+        const color_data = data[positiony][positionx][color_position];
+        if (color_data < this.threshold) {
+          this.ctx.moveTo(x, y);
+        } else {
+          this.ctx.lineTo(x, y + color_data * this.intensity);
+        }
       }
       this.ctx.stroke();
     }
