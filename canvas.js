@@ -1,17 +1,3 @@
-// const Color = {
-//   Red: 0,
-//   Green: 1,
-//   Blue: 2,
-// }
-
-// function getColor(color) {
-//   switch (color) {
-//     case Color.Red: return 'rgba(253, 40, 252, 0.7)';
-//     case Color.Green: return 'rgba(255, 253, 56, 0.7)';
-//     case Color.Blue: return 'rgba(45, 255, 254, 0.7)';
-//   }
-// }
-
 class Canvas {
   canvas;
   ctx;
