@@ -7,7 +7,7 @@ class Canvas {
   intensity = 5;
   lineWidth = 2;
   opacity = 255;
-  threshold = 0.01;
+  threshold = 0.25;
   _src;
   color = {
     red: '#fd28fc',
