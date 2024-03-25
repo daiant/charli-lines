@@ -51,23 +51,29 @@ form {
     }
   }
 
-  button {
-    color: #EEEEEE;
-    background-color: hsl(219, 13%, 33%);
-    border-color: hsl(219, 13%, 43%);
-    border-style: solid;
-    padding: 6px 16px;
-    border-radius: 4px;
-    display: block;
-    margin-block-start: 16px;
+}
 
-    &:hover {
-      background-color: hsl(219, 13%, 36%);
-    }
+input::file-selector-button {
+  display: unset !important;
+}
 
-    &:active {
-      background-color: hsl(219, 13%, 39%);
-    }
+input::file-selector-button,
+button {
+  color: #EEEEEE;
+  background-color: hsl(219, 13%, 33%);
+  border-color: hsl(219, 13%, 43%);
+  border-style: solid;
+  padding: 6px 16px;
+  border-radius: 4px;
+  display: block;
+  margin-block-start: 16px;
+
+  &:hover {
+    background-color: hsl(219, 13%, 36%);
+  }
+
+  &:active {
+    background-color: hsl(219, 13%, 39%);
   }
 }
 
